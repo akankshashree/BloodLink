@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Blood Request | BloodLink</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <style>
+
+        :root {
+            --red: #c81d25;
+            --red-dark: #a9151d;
+            --soft-red: #fff1f2;
+            --dark: #171717;
+            --muted: #6b7280;
+            --border: #eeeeee;
+            --background: #f8f8f8;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--dark);
+            font-family: "DM Sans", sans-serif;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: "Manrope", sans-serif;
+        }
+
+        .navbar {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+        }
+
+        .brand {
+            text-decoration: none;
+            color: var(--dark);
+            font-family: "Manrope", sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .brand span {
+            color: var(--red);
+        }
+
+        .nav-link-custom {
+            color: #555;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: .9rem;
+        }
+
+        .nav-link-custom:hover {
+            color: var(--red);
+        }
+
+        .page {
+            padding: 42px 0 70px;
+        }
+
+        .eyebrow {
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: .73rem;
+            font-weight: 800;
+        }
+
+        .page-header h1 {
+            font-size: 2.55rem;
+            font-weight: 800;
+            margin: 6px 0 8px;
+            letter-spacing: -.8px;
+        }
+
+        .page-header p {
+            color: var(--muted);
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        .card-custom {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+        }
+
+        .section-title {
+            font-family: "Manrope", sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            font-size: .82rem;
+            margin-bottom: 22px;
+        }
+
+        .form-label {
+            font-size: .86rem;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
+
+        .form-control,
+        .form-select {
+            border-color: #ddd;
+            border-radius: 10px;
+            padding: 12px 13px;
+        }
+
+        textarea.form-control {
+            min-height: 115px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(200,29,37,.08);
+        }
+
+        .field-help {
+            color: #888;
+            font-size: .75rem;
+            margin-top: 5px;
+        }
+
+        .location-box {
+            background: #f8f8f8;
+            border-radius: 15px;
+            padding: 18px;
+            margin-top: 5px;
+        }
+
+        .location-box-title {
+            font-weight: 800;
+            font-size: .9rem;
+        }
+
+        .location-box p {
+            color: var(--muted);
+            font-size: .78rem;
+            margin: 4px 0 13px;
+        }
+
+        .location-btn {
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 9px;
+            padding: 9px 13px;
+            font-size: .82rem;
+            font-weight: 700;
+        }
+
+        .location-btn:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        #locationStatus {
+            font-size: .77rem;
+            margin-top: 9px;
+        }
+
+        .urgency-card {
+            background: var(--soft-red);
+            border-radius: 15px;
+            padding: 17px;
+            margin-bottom: 25px;
+        }
+
+        .urgency-card-title {
+            color: var(--red);
+            font-weight: 800;
+            font-size: .86rem;
+        }
+
+        .urgency-card p {
+            color: #777;
+            font-size: .77rem;
+            margin: 4px 0 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            border: none;
+            background: var(--red);
+            color: white;
+            border-radius: 11px;
+            padding: 14px;
+            font-weight: 800;
+            transition: .2s;
+        }
+
+        .submit-btn:hover {
+            background: var(--red-dark);
+            transform: translateY(-1px);
+        }
+
+        .info-card {
+            background: #181818;
+            color: white;
+            border-radius: 20px;
+            padding: 28px;
+        }
+
+        .info-card h4 {
+            font-weight: 800;
+        }
+
+        .info-card p {
+            color: #bbb;
+            font-size: .86rem;
+            line-height: 1.7;
+        }
+
+        .info-point {
+            display: flex;
+            gap: 11px;
+            margin-top: 18px;
+        }
+
+        .info-point i {
+            color: #ff6870;
+        }
+
+        .info-point span {
+            color: #ddd;
+            font-size: .82rem;
+        }
+
+        .alert {
+            border: none;
+            border-radius: 12px;
+        }
+
+        .errorlist {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            color: #dc3545;
+            font-size: .78rem;
+        }
+
+        @media (max-width: 767px) {
+
+            .page {
+                padding: 28px 0 50px;
+            }
+
+            .page-header h1 {
+                font-size: 2.15rem;
+            }
+
+            .card-custom {
+                padding: 23px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar sticky-top">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+            <a href="{% url 'dashboard' %}" class="brand">
+                <span>🩸</span> BloodLink
+            </a>
+
+            <div class="d-flex gap-3">
+
+                <a
+                    href="{% url 'dashboard' %}"
+                    class="nav-link-custom"
+                >
+                    Dashboard
+                </a>
+
+                <a
+                    href="{% url 'my_blood_requests' %}"
+                    class="nav-link-custom"
+                >
+                    My Requests
+                </a>
+
+                <a
+                    href="{% url 'logout' %}"
+                    class="nav-link-custom"
+                >
+                    Logout
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- MAIN -->
+
+<main class="page">
+
+    <div class="container">
+
+
+        <!-- HEADER -->
+
+        <div class="page-header mb-4">
+
+            <div class="eyebrow">
+                Request blood
+            </div>
+
+            <h1>
+                Create a blood request
+            </h1>
+
+            <p>
+                Tell BloodLink what you need. The matching engine
+                will identify compatible and eligible donors within
+                your selected radius.
+            </p>
+
+        </div>
+
+
+        <!-- MESSAGES -->
+
+        {% if messages %}
+
+            {% for message in messages %}
+
+                <div class="alert alert-{{ message.tags }} mb-4">
+                    {{ message }}
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        <div class="row g-4">
+
+
+            <!-- FORM -->
+
+            <div class="col-lg-8">
+
+                <div class="card-custom">
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+
+                        <!-- BLOOD REQUIREMENT -->
+
+                        <div class="section-title">
+                            Blood requirement
+                        </div>
+
+                        <div class="section-subtitle">
+                            Specify the blood type and quantity required.
+                        </div>
+
+
+                        <div class="row g-3 mb-4">
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="{{ form.blood_group.id_for_label }}"
+                                    class="form-label"
+                                >
+                                    Blood group
+                                </label>
+
+                                {{ form.blood_group }}
+
+                                {{ form.blood_group.errors }}
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="{{ form.units_required.id_for_label }}"
+                                    class="form-label"
+                                >
+                                    Units required
+                                </label>
+
+                                {{ form.units_required }}
+
+                                {{ form.units_required.errors }}
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- URGENCY -->
+
+                        <div class="urgency-card">
+
+                            <div class="urgency-card-title">
+
+                                <i class="bi bi-exclamation-circle-fill me-1"></i>
+
+                                How urgent is this request?
+
+                            </div>
+
+                            <p>
+                                Choose the urgency level so donors can
+                                understand the nature of the request.
+                            </p>
+
+                        </div>
+
+
+                        <div class="mb-4">
+
+                            <label
+                                for="{{ form.urgency.id_for_label }}"
+                                class="form-label"
+                            >
+                                Urgency level
+                            </label>
+
+                            {{ form.urgency }}
+
+                            {{ form.urgency.errors }}
+
+                        </div>
+
+
+                        <hr class="my-4">
+
+
+                        <!-- HOSPITAL -->
+
+                        <div class="section-title">
+                            Hospital information
+                        </div>
+
+                        <div class="section-subtitle">
+                            Where should the donor go?
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label
+                                for="{{ form.hospital_name.id_for_label }}"
+                                class="form-label"
+                            >
+                                Hospital name
+                            </label>
+
+                            {{ form.hospital_name }}
+
+                            {{ form.hospital_name.errors }}
+
+                        </div>
+
+
+                        <div class="mb-4">
+
+                            <label
+                                for="{{ form.hospital_address.id_for_label }}"
+                                class="form-label"
+                            >
+                                Hospital address
+                            </label>
+
+                            {{ form.hospital_address }}
+
+                            {{ form.hospital_address.errors }}
+
+                        </div>
+
+
+                        <!-- LOCATION -->
+
+                        <div class="section-title">
+                            Hospital location
+                        </div>
+
+                        <div class="section-subtitle">
+                            Coordinates are used to find nearby eligible donors.
+                        </div>
+
+
+                        <div class="row g-3 mb-2">
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="{{ form.latitude.id_for_label }}"
+                                    class="form-label"
+                                >
+                                    Latitude
+                                </label>
+
+                                {{ form.latitude }}
+
+                                {{ form.latitude.errors }}
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label
+                                    for="{{ form.longitude.id_for_label }}"
+                                    class="form-label"
+                                >
+                                    Longitude
+                                </label>
+
+                                {{ form.longitude }}
+
+                                {{ form.longitude.errors }}
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="location-box mb-4">
+
+                            <div class="location-box-title">
+
+                                <i class="bi bi-geo-alt-fill me-1"></i>
+
+                                Automatically detect location
+
+                            </div>
+
+                            <p>
+                                Use your browser location to fill the
+                                coordinates automatically.
+                            </p>
+
+                            <button
+                                type="button"
+                                class="location-btn"
+                                onclick="getLocation()"
+                            >
+                                <i class="bi bi-crosshair me-1"></i>
+                                Detect my location
+                            </button>
+
+                            <div id="locationStatus"></div>
+
+                        </div>
+
+
+                        <!-- MATCH SETTINGS -->
+
+                        <hr class="my-4">
+
+
+                        <div class="section-title">
+                            Matching settings
+                        </div>
+
+                        <div class="section-subtitle">
+                            Control how far BloodLink should search for donors.
+                        </div>
+
+
+                        <div class="mb-4">
+
+                            <label
+                                for="{{ form.radius_km.id_for_label }}"
+                                class="form-label"
+                            >
+                                Search radius
+                            </label>
+
+                            <div class="input-group">
+
+                                {{ form.radius_km }}
+
+                                <span
+                                    class="input-group-text"
+                                    style="
+                                    border-radius:0 10px 10px 0;
+                                    "
+                                >
+                                    km
+                                </span>
+
+                            </div>
+
+                            <div class="field-help">
+                                Donors outside this distance will not be matched.
+                            </div>
+
+                            {{ form.radius_km.errors }}
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <div class="mb-4">
+
+                            <label
+                                for="{{ form.description.id_for_label }}"
+                                class="form-label"
+                            >
+                                Additional information
+                            </label>
+
+                            {{ form.description }}
+
+                            <div class="field-help">
+                                Add useful context such as patient requirements
+                                or other non-sensitive information.
+                            </div>
+
+                            {{ form.description.errors }}
+
+                        </div>
+
+
+                        <!-- EXPIRY -->
+
+                        <div class="mb-4">
+
+                            <label
+                                for="{{ form.expires_at.id_for_label }}"
+                                class="form-label"
+                            >
+                                Request expiry
+                            </label>
+
+                            {{ form.expires_at }}
+
+                            <div class="field-help">
+                                Optional. Leave blank if there is no expiry time.
+                            </div>
+
+                            {{ form.expires_at.errors }}
+
+                        </div>
+
+
+                        <!-- SUBMIT -->
+
+                        <button
+                            type="submit"
+                            class="submit-btn"
+                        >
+                            <i class="bi bi-search-heart-fill me-2"></i>
+                            Find Eligible Donors
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <!-- SIDE INFORMATION -->
+
+            <div class="col-lg-4">
+
+                <div class="info-card">
+
+                    <div
+                        style="
+                        color:#ff6870;
+                        text-transform:uppercase;
+                        letter-spacing:1.4px;
+                        font-size:.72rem;
+                        font-weight:800;
+                        "
+                    >
+                        BloodLink matching
+                    </div>
+
+                    <h4 class="mt-2">
+                        What happens after you submit?
+                    </h4>
+
+                    <p>
+                        Your request goes through the matching engine
+                        before notifications are sent.
+                    </p>
+
+
+                    <div class="info-point">
+
+                        <i class="bi bi-droplet-fill"></i>
+
+                        <span>
+                            Donor blood-group compatibility is checked.
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-point">
+
+                        <i class="bi bi-calendar-check"></i>
+
+                        <span>
+                            Recent donation history is checked against
+                            the configured donation interval.
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-point">
+
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        <span>
+                            Donor distance from the hospital is calculated.
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-point">
+
+                        <i class="bi bi-bell-fill"></i>
+
+                        <span>
+                            Eligible donors receive an in-app notification.
+                        </span>
+
+                    </div>
+
+
+                    <div class="info-point">
+
+                        <i class="bi bi-shield-lock-fill"></i>
+
+                        <span>
+                            Donor contact information remains private
+                            until a donor accepts.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="mt-4 p-4"
+                    style="
+                    background:white;
+                    border:1px solid #eee;
+                    border-radius:20px;
+                    "
+                >
+
+                    <div
+                        style="
+                        font-size:.75rem;
+                        font-weight:800;
+                        color:#c81d25;
+                        text-transform:uppercase;
+                        letter-spacing:1px;
+                        "
+                    >
+                        Need help?
+                    </div>
+
+                    <p
+                        class="mb-0 mt-2"
+                        style="
+                        color:#777;
+                        font-size:.82rem;
+                        line-height:1.7;
+                        "
+                    >
+                        Make sure the hospital coordinates are accurate.
+                        Distance is calculated from these coordinates,
+                        so incorrect values can affect matching.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script>
+
+function getLocation() {
+
+    const status = document.getElementById("locationStatus");
+
+    status.className = "text-muted";
+
+    status.innerHTML =
+        '<i class="bi bi-hourglass-split me-1"></i> Detecting location...';
+
+
+    if (!navigator.geolocation) {
+
+        status.className = "text-danger";
+
+        status.innerHTML =
+            "Geolocation is not supported by this browser.";
+
+        return;
+    }
+
+
+    navigator.geolocation.getCurrentPosition(
+
+        function(position) {
+
+            document.getElementById("id_latitude").value =
+                position.coords.latitude.toFixed(6);
+
+            document.getElementById("id_longitude").value =
+                position.coords.longitude.toFixed(6);
+
+
+            status.className = "text-success";
+
+            status.innerHTML =
+                '<i class="bi bi-check-circle-fill me-1"></i>' +
+                "Location detected successfully.";
+
+        },
+
+
+        function(error) {
+
+            status.className = "text-danger";
+
+            if (error.code === 1) {
+
+                status.innerHTML =
+                    "Location permission was denied. Enter coordinates manually.";
+
+            } else {
+
+                status.innerHTML =
+                    "Unable to detect location. Please enter coordinates manually.";
+
+            }
+
+        },
+
+        {
+            enableHighAccuracy: true,
+            timeout: 10000,
+            maximumAge: 0
+        }
+
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

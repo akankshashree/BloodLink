@@ -1,0 +1,56 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}
+    {% if subtitle %}{{ subtitle }} | {% endif %}
+    {{ title }} | BloodLink Admin
+{% endblock %}
+
+{% block branding %}
+
+<a href="{% url 'admin:index' %}" class="bloodlink-brand">
+
+    <div class="bloodlink-logo">
+        <span></span>
+        <span></span>
+    </div>
+
+    <div>
+        <div class="bloodlink-name">
+            Blood<span>Link</span>
+        </div>
+
+        <div class="bloodlink-admin-label">
+            ADMIN CONSOLE
+        </div>
+    </div>
+
+</a>
+
+{% endblock %}
+
+
+{% block nav-global %}
+
+<div class="admin-top-actions">
+
+    <a href="/" class="admin-site-link">
+        <span>↗</span>
+        View BloodLink
+    </a>
+
+</div>
+
+{% endblock %}
+
+
+{% block extrastyle %}
+
+{{ block.super }}
+
+<link
+    rel="stylesheet"
+    href="{% static 'admin/custom_admin.css' %}"
+>
+
+{% endblock %}
