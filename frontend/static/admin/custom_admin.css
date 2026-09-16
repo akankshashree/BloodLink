@@ -597,3 +597,255 @@ input[type="submit"]:hover {
     color: #666666 !important;
     -webkit-text-fill-color: #666666 !important;
 }
+
+
+/* =========================================
+   BLOODLINK ADMIN LOGIN - CLEAN LIGHT UI
+========================================= */
+
+/* Overall page */
+body.login {
+    background: #f7f8fa !important;
+    color: #171717 !important;
+}
+
+/* Login container */
+.login #container {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Login form box */
+.login #content {
+    background: #ffffff !important;
+    color: #171717 !important;
+    border: 1px solid #d9dde3 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* =========================================
+   BLOODLINK BRANDING
+========================================= */
+
+.login #header {
+    background: #ffffff !important;
+    color: #171717 !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    padding: 16px 20px !important;
+}
+
+/* Keep logo and BloodLink together */
+.login .bloodlink-brand {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    text-decoration: none !important;
+}
+
+/* Red medical cross */
+.login .bloodlink-logo {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    background: #c81d25 !important;
+    border-radius: 11px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+}
+
+/* Cross vertical */
+.login .bloodlink-logo span:first-child {
+    position: absolute !important;
+    width: 12px !important;
+    height: 30px !important;
+    background: #ffffff !important;
+    border-radius: 2px !important;
+}
+
+/* Cross horizontal */
+.login .bloodlink-logo span:last-child {
+    position: absolute !important;
+    width: 30px !important;
+    height: 12px !important;
+    background: #ffffff !important;
+    border-radius: 2px !important;
+}
+
+/* BloodLink text */
+.login .bloodlink-name {
+    color: #171717 !important;
+    font-family: "Manrope", "DM Sans", sans-serif !important;
+    font-size: 25px !important;
+    font-weight: 800 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+}
+
+/* Red "Link" */
+.login .bloodlink-name span {
+    color: #c81d25 !important;
+}
+
+/* ADMIN CONSOLE */
+.login .bloodlink-admin-label {
+    color: #6b7280 !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+    margin-top: 5px !important;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.login #content-main {
+    background: #ffffff !important;
+    color: #171717 !important;
+}
+
+.login form {
+    background: #ffffff !important;
+}
+
+/* Labels */
+.login label {
+    color: #171717 !important;
+    font-weight: 700 !important;
+}
+
+/* Input boxes */
+.login input[type="text"],
+.login input[type="password"] {
+    width: 100% !important;
+    background: #ffffff !important;
+    color: #171717 !important;
+    -webkit-text-fill-color: #171717 !important;
+    border: 1px solid #cfd4da !important;
+    border-radius: 8px !important;
+    padding: 11px 13px !important;
+    font-size: 14px !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+}
+
+/* Input focus */
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+    background: #ffffff !important;
+    color: #171717 !important;
+    border-color: #c81d25 !important;
+    box-shadow: 0 0 0 3px rgba(200, 29, 37, 0.10) !important;
+    outline: none !important;
+}
+
+/* Placeholder */
+.login input::placeholder {
+    color: #9ca3af !important;
+    -webkit-text-fill-color: #9ca3af !important;
+}
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login .submit-row {
+    background: transparent !important;
+    border: none !important;
+    padding: 20px 0 0 !important;
+}
+
+/* Make Log in clearly visible */
+.login input[type="submit"] {
+    background: #c81d25 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 28px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    min-width: 100px !important;
+    box-shadow: none !important;
+}
+
+/* Login button hover */
+.login input[type="submit"]:hover {
+    background: #a9151d !important;
+}
+
+/* =========================================
+   HELP / ERROR TEXT
+========================================= */
+
+.login .errornote {
+    background: #fff1f2 !important;
+    color: #991b1b !important;
+    border: 1px solid #fecdd3 !important;
+    border-radius: 8px !important;
+}
+
+.login .form-row {
+    background: transparent !important;
+    border: none !important;
+}
+
+.login .password-reset-link {
+    color: #c81d25 !important;
+}
+
+.login .password-reset-link:hover {
+    color: #a9151d !important;
+}
+
+/* =========================================
+   REMOVE UNWANTED DARK ELEMENTS
+========================================= */
+
+.login *,
+.login *::before,
+.login *::after {
+    box-sizing: border-box;
+}
+
+/* Keep text readable everywhere */
+.login p,
+.login div,
+.login span {
+    color: #171717;
+}
+
+/* Restore intended branding colors */
+.login .bloodlink-name,
+.login .bloodlink-name span,
+.login .bloodlink-admin-label {
+    background: transparent !important;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .login #content {
+        margin: 20px !important;
+    }
+
+    .login .bloodlink-name {
+        font-size: 22px !important;
+    }
+
+    .login .bloodlink-logo {
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+    }
+
+}
